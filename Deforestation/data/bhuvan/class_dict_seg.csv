@@ -1,0 +1,8 @@
+name,r,g,b
+urban,0,255,255
+water,0,0,255
+forest,0,255,0
+agriculture,255,255,0
+road,255,0,255
+
+
