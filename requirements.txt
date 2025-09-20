@@ -1,0 +1,8 @@
+numpy>=1.23
+pillow>=9.4
+pandas>=1.5
+jupyterlab>=4.0
+matplotlib>=3.7
+seaborn>=0.12
+
+
