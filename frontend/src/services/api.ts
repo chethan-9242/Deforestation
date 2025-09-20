@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { PredictionResult, ModelStatus } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://your-backend-url.railway.app';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://your-railway-app.railway.app';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
