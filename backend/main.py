@@ -271,10 +271,11 @@ if __name__ == "__main__":
     models_dir = Path(__file__).parent.parent / 'models'
     models_dir.mkdir(exist_ok=True)
     
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True,
+        port=port,
+        reload=False,
         log_level="info"
     )
