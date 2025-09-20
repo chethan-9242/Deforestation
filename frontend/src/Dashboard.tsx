@@ -543,7 +543,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onBackToLanding }) => {
                       <div className="text-center">
                         <img
                           src={beforeImagePreview}
-                          alt="Before image preview"
+                          alt="Before preview"
                           className="max-w-full max-h-64 mx-auto rounded-lg mb-4"
                         />
                         <p className="text-green-600 font-medium">Before image uploaded successfully</p>
@@ -576,7 +576,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onBackToLanding }) => {
                       <div className="text-center">
                         <img
                           src={afterImagePreview}
-                          alt="After image preview"
+                          alt="After preview"
                           className="max-w-full max-h-64 mx-auto rounded-lg mb-4"
                         />
                         <p className="text-green-600 font-medium">After image uploaded successfully</p>
@@ -822,7 +822,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onBackToLanding }) => {
                     >
                       <img
                         src={preview}
-                        alt={`Historical image ${index + 1}`}
+                        alt={`Historical ${index + 1}`}
                         className="w-full h-24 object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 text-center">
