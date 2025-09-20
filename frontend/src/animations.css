@@ -1,0 +1,344 @@
+/* Custom animations for ForestGuard AI */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Utility classes */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200px 100%;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particle-float linear infinite;
+}
+
+/* Hover animations */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Gradient animations */
+.gradient-shift {
+  background: linear-gradient(45deg, #10b981, #059669, #0d9488, #0f766e);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Text gradient animation */
+.text-gradient-animate {
+  background: linear-gradient(45deg, #10b981, #3b82f6, #8b5cf6, #ef4444, #10b981);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Button ripple effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.6s, height 0.6s;
+  transform: translate(-50%, -50%);
+}
+
+.btn-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #10b981;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Stagger animation for lists */
+.stagger-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Dashboard section hover utility */
+.dashboard-section-hover {
+  transition: all 0.3s ease;
+}
+
+.dashboard-section-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Consistent emerald glow for all sections */
+.emerald-glow-hover {
+  transition: all 0.3s ease;
+}
+
+.emerald-glow-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2), 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Keep existing dashboard-card hover effect */
+.dashboard-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 40px -8px rgba(16, 185, 129, 0.3),
+    0 15px 30px -6px rgba(16, 185, 129, 0.2),
+    0 8px 20px -4px rgba(16, 185, 129, 0.1),
+    0 4px 10px -2px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, 
+    rgba(16, 185, 129, 0.4), 
+    rgba(20, 184, 166, 0.3), 
+    rgba(5, 150, 105, 0.4),
+    rgba(16, 185, 129, 0.4)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(2px);
+}
+
+.dashboard-card:hover::before {
+  opacity: 1;
+}
+
+/* Navigation Tab Hover Effects */
+.nav-tab {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.nav-tab:not(.nav-tab-active):hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px -5px rgba(16, 185, 129, 0.25),
+    0 8px 15px -3px rgba(16, 185, 129, 0.15),
+    0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
+  z-index: 10;
+}
+
+/* Consistent glow outline for tabs */
+.nav-tab::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.6), 
+    rgba(20, 184, 166, 0.4), 
+    rgba(5, 150, 105, 0.6)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(3px);
+}
+
+.nav-tab:not(.nav-tab-active):hover::before {
+  opacity: 1;
+}
+
+/* Active tab styling */
+.nav-tab-active {
+  background: linear-gradient(135deg, #10b981, #0d9488) !important;
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 15px 30px -6px rgba(16, 185, 129, 0.4),
+    0 10px 20px -4px rgba(16, 185, 129, 0.3),
+    0 4px 10px -2px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
