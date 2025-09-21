@@ -35,6 +35,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000", 
         "http://127.0.0.1:3000",
+        "http://localhost:62779",
+        "http://127.0.0.1:62779",
         "https://your-netlify-app.netlify.app",  # Replace with your Netlify URL
         "https://*.netlify.app"  # Allow all Netlify subdomains
     ],

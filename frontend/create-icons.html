@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    <br>
+    <button onclick="generateIcons()">Generate All Icons</button>
+    <div id="downloads"></div>
+
+    <script>
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#059669';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Rounded corners
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size/8);
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+            
+            // Tree icon
+            ctx.fillStyle = '#ffffff';
+            // Trunk
+            ctx.fillRect(size * 0.4, size * 0.6, size * 0.2, size * 0.3);
+            // Leaves
+            ctx.beginPath();
+            ctx.arc(size * 0.5, size * 0.4, size * 0.25, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Letter F
+            ctx.font = `bold ${size/8}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.fillText('F', size * 0.5, size * 0.85);
+            
+            return canvas.toDataURL('image/png');
+        }
+        
+        function generateIcons() {
+            const sizes = [16, 32, 72, 96, 128, 144, 152, 192, 384, 512];
+            const downloadsDiv = document.getElementById('downloads');
+            downloadsDiv.innerHTML = '';
+            
+            sizes.forEach(size => {
+                const dataUrl = createIcon(size);
+                const link = document.createElement('a');
+                link.download = `icon-${size}x${size}.png`;
+                link.href = dataUrl;
+                link.textContent = `Download ${size}x${size} icon`;
+                link.style.display = 'block';
+                link.style.margin = '5px 0';
+                downloadsDiv.appendChild(link);
+            });
+        }
+        
+        // Generate preview
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const preview = createIcon(512);
+        const img = new Image();
+        img.onload = () => ctx.drawImage(img, 0, 0);
+        img.src = preview;
+    </script>
+</body>
+</html>
